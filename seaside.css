@@ -1,0 +1,390 @@
+/*
+  Seaside Sci-Fi — seaside.css
+  Cold War terminal identity layer
+  Version 1.3 — June 2026
+  Hex-only colour values. Poppins only. Sentence case throughout. No em dashes.
+  v1.3: Type scale revised upward throughout for accessibility.
+        Fragment and teaser text Poppins 18px. System lines 13px minimum.
+*/
+
+/* ============================================================
+   COLOUR TOKENS
+   ============================================================ */
+
+:root {
+  --ssf-void:         #0d0f0e;
+  --ssf-surface:      #161a17;
+  --ssf-signal:       #5aad72;
+  --ssf-signal-dim:   #2a6640;
+  --ssf-transmission: #e8ede9;
+  --ssf-static:       #6b7f6e;
+  --ssf-perimeter:    #2a3d2e;
+  --ssf-alert:        #c0392b;
+  --ssf-classified:   #d4a843;
+  --ssf-overlay:      #0d0f0eb3;
+}
+
+/* ============================================================
+   PAGE BASE
+   ============================================================ */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--ssf-void);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  color: var(--ssf-transmission);
+  overflow: hidden;
+}
+
+/* ============================================================
+   VIDEO BACKGROUND
+   ============================================================ */
+
+.ssf-video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  background-image: url('/assets/img/roker-still.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.ssf-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
+
+.ssf-video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--ssf-overlay);
+  z-index: 1;
+}
+
+/* ============================================================
+   STAGE
+   ============================================================ */
+
+.ssf-stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   TERMINAL DIALOGUE
+   ============================================================ */
+
+.ssf-terminal {
+  background: #161a17b3;
+  border: 0.5px solid var(--ssf-perimeter);
+  border-top: 2px solid var(--ssf-signal);
+  max-width: 680px;
+  width: 100%;
+  padding: 0;
+  box-shadow: 0 0 60px #0d0f0e99;
+}
+
+.ssf-terminal-bar {
+  background: var(--ssf-perimeter);
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ssf-terminal-title {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--ssf-signal);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.ssf-terminal-status {
+  font-size: 13px;
+  color: var(--ssf-signal);
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ssf-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ssf-signal);
+  display: inline-block;
+  animation: ssf-pulse 2s infinite;
+}
+
+@keyframes ssf-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.ssf-terminal-body {
+  padding: 28px 32px 28px;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* System lines - monospace, smaller, secondary role */
+.ssf-sys-line {
+  color: var(--ssf-static);
+  font-size: 13px;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.04em;
+  margin: 0 0 5px;
+}
+
+.ssf-sys-line.accent {
+  color: var(--ssf-signal-dim);
+}
+
+.ssf-divider {
+  border: none;
+  border-top: 0.5px solid var(--ssf-perimeter);
+  margin: 20px 0;
+}
+
+/* Fragment - Poppins, full reading size */
+.ssf-fragment {
+  color: var(--ssf-transmission);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 0 0 8px;
+}
+
+.ssf-fragment .cursor {
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  background: var(--ssf-signal);
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  animation: ssf-blink 1s step-end infinite;
+}
+
+@keyframes ssf-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Prompt */
+.ssf-prompt {
+  color: var(--ssf-static);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 24px 0 0;
+}
+
+.ssf-prompt span {
+  color: var(--ssf-signal);
+  cursor: pointer;
+  border-bottom: 0.5px solid var(--ssf-signal-dim);
+  transition: color 0.15s;
+}
+
+.ssf-prompt span:hover {
+  color: var(--ssf-transmission);
+}
+
+/* ============================================================
+   TEASER REVEAL PANEL
+   ============================================================ */
+
+.ssf-teaser-panel {
+  display: none;
+  padding: 0 32px 32px;
+}
+
+.ssf-teaser-panel.active {
+  display: block;
+}
+
+.ssf-teaser-line {
+  color: var(--ssf-static);
+  font-size: 13px;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.04em;
+  margin: 0 0 8px;
+}
+
+.ssf-teaser-text {
+  color: var(--ssf-transmission);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 12px 0 24px;
+  min-height: 60px;
+}
+
+.ssf-teaser-text .typed-char {
+  opacity: 0;
+  animation: ssf-appear 0.02s forwards;
+}
+
+@keyframes ssf-appear {
+  to { opacity: 1; }
+}
+
+.ssf-terminated {
+  display: none;
+  margin-top: 16px;
+}
+
+.ssf-terminated.active {
+  display: block;
+}
+
+.ssf-terminated-line {
+  color: var(--ssf-alert);
+  font-size: 13px;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.08em;
+  margin: 0 0 5px;
+}
+
+.ssf-terminated-return {
+  color: var(--ssf-static);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 12px 0 0;
+}
+
+.ssf-terminated-return a {
+  color: var(--ssf-signal);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--ssf-signal-dim);
+}
+
+.ssf-terminated-return a:hover {
+  color: var(--ssf-transmission);
+}
+
+/* ============================================================
+   CLASSIFIED STAMP
+   ============================================================ */
+
+.ssf-stamp {
+  border: 1.5px solid var(--ssf-classified);
+  color: var(--ssf-classified);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  padding: 4px 12px;
+  font-family: 'Courier New', Courier, monospace;
+  opacity: 0.7;
+  transform: rotate(-2deg);
+  display: block;
+  width: fit-content;
+  margin: 20px 0 0;
+}
+
+/* ============================================================
+   FOOTER CREDIT
+   ============================================================ */
+
+.ssf-footer-credit {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  font-size: 13px;
+  color: var(--ssf-static);
+  letter-spacing: 0.08em;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap;
+  opacity: 0.6;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 680px) {
+  .ssf-terminal { max-width: 100%; }
+  .ssf-terminal-body { padding: 20px 20px 24px; }
+  .ssf-teaser-panel { padding: 0 20px 24px; }
+  .ssf-fragment { font-size: 16px; }
+  .ssf-teaser-text { font-size: 16px; }
+  .ssf-prompt { font-size: 15px; }
+  .ssf-terminated-return { font-size: 15px; }
+  .ssf-footer-credit { font-size: 12px; }
+}
+
+/* ============================================================
+   FOOTER PARTIAL
+   v1.0 - beginning of footer framework
+   ============================================================ */
+
+#main-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  background: #0d0f0ecc;
+  border-top: 0.5px solid var(--ssf-perimeter);
+}
+
+.ssf-footer-inner {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.ssf-footer-credit-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.ssf-footer-text {
+  font-size: 13px;
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--ssf-static);
+  letter-spacing: 0.06em;
+  margin: 0;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+@media (max-width: 680px) {
+  .ssf-footer-text {
+    font-size: 11px;
+    white-space: normal;
+    text-align: center;
+  }
+}

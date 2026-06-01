@@ -1,0 +1,760 @@
+/* ============================================================
+   THINKAMIGO DESTINATION ENGINE v4.32
+   Architecture: 1250px Horizon | 960px Editorial Rail
+   Updates: Refined Fixed-Width Form Sandbox (450px/750px)
+   Features: SATURATION LOCK (#0054dc), Signature Style Sync
+   v4.24: Breadcrumb and links-section hover behaviour refined.
+   Breadcrumb-white specificity fix for theatre environment.
+   v4.25: Inline link hover -- text stays blue, orange underline.
+   v4.26: publication-meta class added for publication card credits.
+   v4.27: Breadcrumb chevron added via CSS ::before. Reverted.
+   v4.28: Breadcrumb < character added via ::before, grey #888888. Reverted.
+   v4.29: Breadcrumb < removed from CSS. Plain text in HTML only. Not a link.
+   v4.30: links-section-mesh added. Mesh texture as background-image,
+          no-repeat, anchored to bottom, full paper-sheet width.
+          Text rail sits inside for content alignment.
+   v4.31: paper-sheet-feature modifier added. Sets padding-bottom: 0
+          for feature pages using links-section-mesh.
+   v4.32: Beyond Belief card grid added. Thumbnail grid for eZine
+          landing pages. Used on beyond-belief.html and similar
+          ThinkCREATE indexes.
+   ============================================================ */
+
+:root {
+    --brand-blue: #0054dc;
+    --brand-orange: #ff6600;
+    --stone-bg: #f5f5ef;
+    --charcoal: #191919;
+}
+
+/* 1. GLOBAL PAGE BASE */
+body.content-page {
+    background-color: var(--stone-bg);
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    font-size: 18px;          
+}
+
+/* 2. THE NAV SATURATION LOCK */
+#main-nav {
+    background-color: var(--brand-blue) !important;
+}
+
+/* 3. THE CINEMATIC HERO ENGINE */
+.story-hero-wrapper {
+    width: 100%;
+    background-color: var(--stone-bg); 
+    display: flex;
+    justify-content: center;        
+    border-top: 1px solid #ffffff; 
+    margin-top: 0;
+    line-height: 0;
+}
+
+.panoramic-hero {
+    width: 100%;             
+    max-width: 1250px;       
+    height: auto;            
+    display: block;          
+    object-fit: contain;     
+}
+
+/* 4. THE PAPER SHEET */
+.paper-sheet {
+    background-color: #ffffff;
+    max-width: 1250px;       
+    margin: 0 auto;          
+    min-height: 600px;
+    padding-bottom: 80px;    
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+}
+
+/* 4b. PAPER SHEET FEATURE MODIFIER */
+/* Use on feature pages with links-section-mesh at the foot. */
+/* Removes default padding-bottom so mesh sits flush above footer. */
+.paper-sheet-feature {
+    padding-bottom: 20;
+}
+
+/* 5. THE TEXT RAIL */
+.text-rail {
+    max-width: 960px;        
+    margin: 0 auto;
+    width: 90%;              
+    padding: 20px 0 80px 0;  
+}
+
+.text-rail p a {
+    color: var(--brand-blue);
+    text-decoration: underline;
+    text-decoration-color: #bbbbbb;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s ease, text-decoration-thickness 0.2s ease;
+}
+
+.text-rail p a:hover {
+    color: var(--brand-blue);
+    text-decoration-color: var(--brand-orange);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+}
+
+/* 6. STORY HEADINGS & ACCENTS */
+.text-rail h1 { 
+    font-size: 48px;         
+    font-weight: 600; 
+    line-height: 1.1; 
+    margin-bottom: 18px;
+    color: var(--brand-blue);
+}
+
+.orange-rule { 
+    width: 250px;            
+    height: 1px;             
+    background-color: var(--brand-orange); 
+    margin-bottom: 20px; 
+}
+
+.text-rail h2 {
+    font-size: 28px;         
+    font-weight: 200;
+    color: var(--charcoal);
+    margin: 20px 0 20px 0;
+}
+
+.text-rail h3 {
+    font-size: 24px;         
+    font-weight: 600;
+    color: var(--brand-blue);
+    margin: 60px 0 8px 0;
+}
+
+.text-rail p {
+    font-size: 18px;         
+    line-height: 1.65;       
+    margin-bottom: 24px;
+}
+
+.text-rail h3 + p {
+    margin-top: 0;
+}
+
+/* 7. THE GALLERY GRID (3-UP) */
+.gallery-grid-3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;               
+    margin: 50px 0;
+}
+
+.gallery-grid-3 figure {
+    flex: 0 0 calc(33.333% - 14px);
+    margin: 0;
+}
+
+.gallery-grid-3 img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+/* 8. EDITORIAL CAPTIONS */
+.caption {
+    background: #f4f3ef;
+    padding: 12px 18px;
+    margin-top: -15px;
+    margin-bottom: 25px;
+    font-size: 15px;         
+    color: #666;
+}
+
+/* 9. PAGE ELEMENTS: INTERNAL DIVIDERS & LINKS */
+.rule-grey-paper {
+    width: 100%;
+    height: 1px;
+    background-color: #dddddd;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: block;
+}
+
+.link-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 20px 0;
+}
+
+.link-list li {
+    margin-bottom: 6px;
+    line-height: 40px;
+}
+
+.link-list a {
+    color: var(--brand-blue); 
+    text-decoration: none !important;
+    border: none !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600; 
+    transition: color 0.3s ease;
+}
+
+.link-list a:hover {
+    color: var(--brand-orange);
+    text-decoration: none !important;
+}
+
+/* 10. THE TYPOGRAPHIC BLOCKQUOTE */
+.text-rail blockquote {
+    margin: 80px 0 20px 0; 
+    padding: 40px 0 15px 60px;       
+    max-width: 640px;                
+    position: relative;              
+    border: none;
+    border-left: 4px solid var(--brand-blue);
+}
+
+blockquote + p {
+    margin-top: 0 !important;
+}
+
+.text-rail blockquote p {
+    margin: 0;                       
+    font-size: 32px;                 
+    font-weight: 300;                
+    line-height: 1.35;               
+    color: #444;
+    display: inline;                 
+}
+
+.text-rail blockquote p::before {
+    content: "\201C";                
+    position: absolute;
+    left: 24px;                      
+    top: 54px;                       
+    color: #888;
+    font-size: 52px;                 
+    font-family: Georgia, serif;     
+    line-height: 0;                  
+}
+
+.text-rail blockquote p::after {
+    content: "\201D";                
+    color: #888;
+    font-size: 52px;
+    font-family: Georgia, serif;
+    margin-left: 6px;
+    display: inline-block;           
+    line-height: 0;                  
+    transform: translateY(15px);     
+}
+
+.text-rail blockquote footer {
+    display: block;                  
+    margin-top: 32px;                
+    font-size: 18px;
+    font-weight: 300;
+    color: #888;                     
+    letter-spacing: 0.02em;
+    font-family: 'Poppins', sans-serif; 
+}
+
+/* 11. RESPONSIVE ENGINE (EDITORIAL CORE) */
+@media (max-width: 1250px) {
+    .paper-sheet { box-shadow: none; }
+}
+
+@media (max-width: 768px) {
+    .text-rail { width: 92%; padding: 30px 0 40px 0; }
+    .text-rail h1 { font-size: 38px; }
+    .text-rail blockquote { padding: 40px 0 15px 30px; margin: 40px 0 10px 0; border-left: 4px solid var(--brand-blue); max-width: 100%; }
+    .text-rail blockquote p { font-size: 24px; }
+    .text-rail blockquote p::before { left: 8px; top: 50px; font-size: 36px; }
+    .text-rail blockquote p::after { font-size: 36px; transform: translateY(8px); }
+    .text-rail blockquote footer { margin-top: 25px; font-size: 16px; }
+}
+
+/* ============================================================
+   12. CONTACT FORM SANDBOX (ISOLATED & FIXED WIDTH)
+   ============================================================ */
+
+.contact-form-refined {
+    display: block;
+    width: 100%;
+    padding: 0; 
+    margin: 40px 0;
+    box-sizing: border-box;
+}
+
+.contact-form-refined .form-group {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.contact-form-refined label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #666666;
+    text-align: left;
+}
+
+.contact-form-refined input {
+    display: block;
+    width: 500px;            
+    max-width: 100%;         
+    padding: 12px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.contact-form-refined textarea {
+    display: block;
+    width: 500px;            
+    max-width: 100%;
+    height: 220px;
+    padding: 12px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.contact-form-refined .btn-pill {
+    --btn-bg: #0054DC;          
+    --btn-glow: #1A73FF;        
+    --btn-border: #D1D1D1;      
+    display: inline-block;
+    background-color: var(--btn-bg) !important;
+    color: #FFFFFF !important;
+    border: 2px solid var(--btn-border); 
+    padding: 12px 45px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    appearance: none;
+    outline: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    transform: none !important; 
+}
+
+.contact-form-refined .btn-pill:hover {
+    background-color: var(--btn-glow) !important; 
+    border-color: #BDBDBD; 
+    transform: none !important;
+}
+
+.contact-form-refined .btn-pill:active {
+    background-color: var(--btn-bg) !important;
+    transform: none !important;
+}
+
+@media (max-width: 768px) {
+    .contact-form-refined { padding: 0; }
+    .contact-form-refined input,
+    .contact-form-refined textarea {
+        width: 100%;
+    }
+}
+
+.links-footer-block {
+    width: 960px;
+    margin: 0 auto;
+    padding: 40px 40px 0 40px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.links-footer-block h2 {
+    color: var(--brand-blue);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.links-footer-block p {
+    margin-bottom: 10px;
+}
+
+.links-footer-block p:last-child {
+    margin-bottom: 20px;
+}
+
+/* ============================================================
+   13. LINKS SECTION
+   ============================================================ */
+
+.links-section {
+    padding: 20px 0 10px 0;
+}
+
+.links-section h2 {
+    color: var(--brand-blue);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.links-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links-section ul li {
+    line-height: 2.2;
+}
+
+.links-section ul li a {
+    color: var(--brand-blue);
+    text-decoration: underline;
+    text-decoration-color: #bbbbbb;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s ease, text-decoration-thickness 0.2s ease;
+}
+
+.links-section ul li a:hover {
+    color: var(--brand-blue);
+    text-decoration-color: var(--brand-orange);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+}
+
+/* ============================================================
+   14. BREADCRUMB
+   Use on second-level pages and deeper with no cinematic hero.
+   Do not use on top-level pages (Consulting, Storytelling etc)
+   that use the panoramic hero image.
+   Plain <a> tag only. No chevron character. No ::before.
+   ============================================================ */
+
+p.breadcrumb {
+    margin: 0 0 24px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #888888;
+}
+
+p.breadcrumb a {
+    color: var(--brand-blue);
+    text-decoration: none;
+}
+
+p.breadcrumb a:hover {
+    color: var(--brand-blue);
+    text-decoration: underline;
+    text-decoration-color: var(--brand-orange);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+}
+
+p.breadcrumb-white {
+    margin: 0 0 24px 0;
+    font-size: 14px;
+    font-weight: 300;
+    color: #bbbbbb;
+}
+
+p.breadcrumb-white a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+p.breadcrumb-white a:hover,
+.text-rail p.breadcrumb-white a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: var(--brand-orange);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+}
+
+/* ============================================================
+   15. PEOPLE BIOG PAGE
+   ============================================================ */
+
+.biog-intro-row {
+    margin-bottom: 0;
+    align-items: start;
+}
+
+.biog-portrait {
+    flex: 0 0 calc(33.333% - 14px);
+}
+
+.biog-portrait img {
+    width: 100%;
+    display: block;
+    outline: 1px solid #dddddd;
+    outline-offset: -1px;
+    cursor: default;
+}
+
+.biog-contact-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666666;
+    margin: 12px 0 2px 0;
+}
+
+.biog-contact-link {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--brand-blue);
+    text-decoration: none;
+}
+
+.biog-contact-link:hover {
+    color: var(--brand-orange);
+}
+
+.biog-body {
+    flex: 0 0 calc(66.666% - 7px);
+    padding-top: 0;
+}
+
+.biog-body p:first-child {
+    margin-top: 0;
+}
+
+/* -- collaborator gallery cards -- */
+
+.biog-collab-card {
+    display: block;
+    text-decoration: none;
+    flex: 0 0 calc(33.333% - 14px);
+    outline: 1px solid #dddddd;
+    outline-offset: -1px;
+}
+
+.biog-collab-card figure {
+    margin: 0;
+}
+
+.biog-collab-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.biog-collab-caption {
+    display: block;
+    background-color: #f9f8f4;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555555;
+    padding: 10px 12px;
+}
+
+.biog-collab-card:hover .biog-collab-caption {
+    color: var(--brand-orange);
+}
+
+/* -- responsive -- */
+
+@media (max-width: 768px) {
+    .biog-portrait,
+    .biog-body,
+    .biog-collab-card {
+        flex: 0 0 100%;
+    }
+    .biog-portrait img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .biog-collab-card {
+        flex: 0 0 100%;
+    }
+}
+
+/* ============================================================
+   16. INLINE BULLET LIST - REMOVED list-style: none;
+   ============================================================ */
+
+.bullet-section {
+    padding: 20px 0 10px 0;
+}
+
+.bullet-section h2 {
+    color: var(--brand-blue);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.bullet-section ul {
+    padding: 0;
+    margin: 0;
+}
+
+.bullet-section ul li {
+    line-height: 2.2;
+}
+
+.bullet-section ul li a {
+    color: var(--brand-blue);
+    text-decoration: underline;
+    text-decoration-color: #bbbbbb;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s ease, text-decoration-thickness 0.2s ease;
+}
+
+.bullet-section ul li a:hover {
+    color: var(--brand-blue);
+    text-decoration-color: var(--brand-orange);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+}
+
+/* ============================================================
+   17. PUBLICATION META CREDITS
+   Small label text for publisher, role, extent and format
+   on publication cards and gallery items.
+   ============================================================ */
+
+.resource-caption .publication-meta,
+.resource-card .publication-meta,
+.gallery-item .publication-meta {
+    font-size: 13px;
+    font-weight: 300;
+    color: #888888;
+    line-height: 1.7;
+    margin: 6px 0 12px 0;
+}
+
+/* ============================================================
+   18. LINKS SECTION WITH MESH TEXTURE
+   For feature pages. Mesh background spans full paper-sheet
+   width. Text rail sits inside for content alignment.
+   Fades to white at top. No repeat. No inline mesh img needed.
+   No padding-bottom: 0 on paper-sheet needed.
+   Adjust padding-bottom to control how much mesh is visible.
+   Structure: .links-section-mesh wraps .text-rail > .links-section
+   ============================================================ */
+
+.links-section-mesh {
+    background-image: url('assets/img/mesh-texture.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+    width: 100%;
+    min-height: 360px;
+    padding: 0;
+    margin-bottom: -80px;
+}
+
+/* ============================================================
+   19. BEYOND BELIEF CARD GRID
+   Thumbnail grid for eZine landing pages.
+   Used on beyond-belief.html and similar ThinkCREATE indexes.
+   Two sections: ThinkCREATE (blue top border) and external
+   Sillitoe Trail links (grey top border). Both turn orange
+   on hover. View link pinned to bottom of each card.
+   ============================================================ */
+
+.beyond-belief-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 40px 0;
+}
+
+.bb-card {
+    background: #f5f5ef;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.bb-card-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    background: #dddddd;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    transition: outline-color 0.2s ease;
+}
+
+.bb-card:hover .bb-card-thumb { outline-color: #0054dc; }
+
+.bb-card.external:hover .bb-card-thumb { outline-color: #0054dc; }
+
+.bb-card-body {
+    padding: 16px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.bb-card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.3;
+    margin-bottom: 6px;
+}
+
+.bb-card-byline {
+    font-size: 0.75rem;
+    color: #888888;
+    margin-bottom: 12px;
+}
+
+.bb-card-summary {
+    font-size: 0.85rem;
+    color: #555555;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 16px;
+}
+
+.bb-card-view {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #0054dc;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid #ededed;
+}
+
+.bb-card:hover .bb-card-view { color: #ff6600; }
+
+.bb-card.external .bb-card-view { color: #888888; }
+
+.bb-card.external:hover .bb-card-view { color: #ff6600; }
+
+@media (max-width: 768px) {
+    .beyond-belief-grid {
+        grid-template-columns: 1fr;
+    }
+}

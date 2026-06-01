@@ -1,0 +1,80 @@
+/* ============================================================
+   thinkamigo.css - v1.21 Visual DNA
+   Architecture: 1250px Horizon | 960px Editorial Rail
+   Precision: 6-Digit Hex ONLY | Single Font Family (Poppins)
+   Note: All graphic paths require filename verification.
+   ============================================================ */
+
+:root {
+    /* 1. LAYOUT RAILS (The 1250px Standard) */
+    --grid-max-width: 1250px;
+    --editorial-rail-width: 960px;
+    --gutter-desktop: 20px;
+    --gutter-mobile: 15px;
+
+    /* 2. PRIMARY BRAND PALETTE */
+    --brand-blue: #0054dc;      /* Saturation Lock Blue */
+    --brand-orange: #ff6600;    /* Precision Orange */
+    --footer-bg: #0a254a;
+    --white: #ffffff;
+    --stone-bg: #e3e2d9;        /* Global Page Base */
+    --charcoal: #191919;        /* Heading/H2 Accent */
+
+    /* 3. HARDWARE & UI PALETTE (Audio/Gallery/Dark) */
+    --player-chassis: #e2e1dc;
+    --player-faceplate: #f2f1ed;
+    --player-controls: #d1d0cb;
+    --player-led-bg: #0a0a0a;
+    --player-border: #b1b0ab;
+    --player-border-alt: #c0bfba;
+    
+    --dark-bg: #000000;
+    --dark-paper: #1a1a1a;
+    --dark-text-muted: #aaaaaa;
+    
+    --lightbox-overlay: #000000; 
+    --play-button-color: #ffffff; 
+    
+    --border-grey: #dddddd;      
+    --border-light: #eeeeee;     
+    --caption-bg: #f4f3ef;       
+
+    /* 4. TYPOGRAPHIC COLOURS */
+    --text-primary: #333333;    /* Main Body Text */
+    --text-muted: #666666;       /* Editorial Captions */
+    --text-dim: #888888;         /* Quote Marks & Footer Meta */
+    --text-quote: #444444;       /* Blockquote Paragraphs */
+
+    /* 5. TYPOGRAPHY (STRICT POPPINS ONLY) */
+    --font-main: 'Poppins', sans-serif;
+
+    /* Typographic Scale (v4.19 Standards) */
+    --h1-size: 48px;         
+    --h1-weight: 900; 
+    --h1-line-height: 1.1;
+
+    --h2-size: 28px;         
+    --h2-weight: 200;
+
+    --h3-size: 24px;         
+    --h3-weight: 600;
+
+    --p-size: 18px;          
+    --p-line-height: 1.65;
+
+    --caption-size: 15px;
+    --blockquote-size: 32px; 
+    --blockquote-weight: 300;
+
+    /* 6. BRAND ASSETS (VERIFY FILENAMES) */
+    /* Logotype: Custom designed type style of the brand name */
+    --logotype-main: url('assets/img/logotype-thinkamigo.png'); 
+    
+    /* Logo: The recognisable bubble graphic */
+    --logo-bubble: url('assets/img/logo-bubble.png');  
+
+    /* Social Utility Assets */
+    --icon-linkedin: url('assets/img/icon-linkedin.png');
+    --icon-substack: url('assets/img/icon-substack.png');
+    --icon-instagram: url('assets/img/icon-instagram.png');
+}

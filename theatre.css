@@ -1,0 +1,279 @@
+/* ============================================================
+   THINKAMIGO THEATRE ENGINE v5.7
+   Architecture: Sovereign Cinema Environment (Grounded)
+   Updates: Keyline Icon | YouTube a-tag Sync | Gallery Parity
+   Functionality: #0A254A Midnight Blue | Fixed Breakout
+   v5.6: breadcrumb-white hover fixed — text stays white with
+   orange underline at 6px offset.
+   v5.7: theatre-meta plain text label | res-link--private
+   greyed-out state for non-public video credits.
+   ============================================================ */
+
+/* --- 1. THE MAIN STAGE (THE VOID) --- */
+.theatre-env {
+    background-color: #000000;
+    padding: 0; 
+    margin: 0;
+    min-height: 0; 
+    color: #FFFFFF;
+}
+
+/* --- 2. THE GRID STAGE (1250px CHARCOAL) --- */
+.theatre-grid-charcoal {
+    background-color: #1A1A1A;
+    padding: 20px 0; 
+    width: 100%;
+    margin: 0;
+    border-top: 1px solid #222222;
+    border-bottom: 1px solid #222222;
+}
+
+.theatre-grid-charcoal .chassis-container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* --- 3. THEATRE TYPOGRAPHY --- */
+.theatre-grid-charcoal header {
+    margin-bottom: 60px;
+    text-align: left;
+}
+
+.theatre-grid-charcoal h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.1; 
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.theatre-grid-charcoal .orange-rule {
+    width: 250px;
+    height: 1px;
+    background-color: #FF6600; 
+    margin: 18px 0 30px 0;   
+}
+
+.theatre-grid-charcoal h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 200;
+    color: #BBBBBB;          
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.03em;
+}
+
+/* --- 4. THE GRID --- */
+.video-theatre-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    width: 100%;
+}
+
+/* --- 5. THE VIDEO CARD & INLINE FEATURES --- */
+
+.theatre-card, 
+a.theatre-card,
+.story-inline-video .theatre-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    height: 100%; 
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.story-inline-video {
+    margin: 45px 0;
+    width: 100%;
+    display: block;
+}
+
+.theatre-thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    line-height: 0;
+    background-color: #000000;
+    border-radius: 4px;
+}
+
+.theatre-thumb::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 20px solid #FFFFFF; 
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.8));
+    opacity: 0.3; 
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.story-inline-video .theatre-thumb::after {
+    border-top-width: 20px;
+    border-bottom-width: 20px;
+    border-left-width: 32px;
+}
+
+.theatre-card:hover .theatre-thumb::after {
+    opacity: 1;
+}
+
+.theatre-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    outline: 1px solid #333333;
+    outline-offset: -1px;
+    transition: all 0.2s ease;
+}
+
+.theatre-card:hover .theatre-thumb img {
+    outline: 1px solid #BBBBBB;
+    filter: brightness(1.05);
+}
+
+.theatre-caption {
+    padding: 18px 0 0 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.theatre-desc {
+    font-size: 14px; 
+    color: #BBBBBB; 
+    line-height: 1.45;
+    margin: 0 0 15px 0;
+}
+
+.theatre-actions {
+    margin-top: auto; 
+    padding-top: 5px;
+}
+
+/* --- 5a. THEATRE META (type and role plain text labels) --- */
+.theatre-meta {
+    font-size: 12px;
+    font-weight: 300;
+    color: #666666;
+    line-height: 1.45;
+    margin: 0 0 6px 0;
+}
+
+/* --- 5b. ACTION LINKS --- */
+.theatre-actions .res-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0054DC; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.theatre-card:hover .res-link {
+    color: #FF6600; 
+}
+
+/* --- 5c. PRIVATE — non-public video credit, no interaction --- */
+.res-link--private {
+    font-size: 14px;
+    font-weight: 600;
+    color: #BBBBBB;
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+    display: inline-block;
+}
+
+/* --- 6. THE PROJECTOR (GLOBAL BREAKOUT & GALLERY PARITY) --- */
+#video-theatre-projector {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    background-color: #0A254A;
+    display: none;
+    z-index: 1000000; 
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.projector-stage {
+    width: 95vw;
+    max-width: 1600px;
+    aspect-ratio: 16 / 9;
+    background-color: #000000;
+    position: relative;
+}
+
+.projector-close {
+    position: fixed; 
+    top: 15px; 
+    right: 15px; 
+    width: 40px; 
+    height: 40px; 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: 22px; 
+    z-index: 1000001; 
+    cursor: pointer;
+}
+
+.video-container, 
+.video-container iframe,
+.video-container video {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+    display: block;
+}
+
+/* --- 7. MOBILE REFINEMENTS --- */
+@media (max-width: 768px) {
+    .video-theatre-grid { grid-template-columns: 1fr; gap: 40px; }
+    .theatre-thumb::after { display: none; } 
+    .projector-close { 
+        top: max(15px, env(safe-area-inset-top)); 
+        right: max(15px, env(safe-area-inset-right)); 
+    }
+}
+
+/* --- 8. BREADCRUMB --- */
+
+p.breadcrumb-white {
+    margin: 0px 0 35px 0;
+    font-size: 14px;
+    font-weight: 300;
+    color: #bbbbbb;
+}
+
+p.breadcrumb-white a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+p.breadcrumb-white a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: #ff6600;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+}
