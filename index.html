@@ -1,82 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seaside Sci-Fi</title>
-  <meta name="description" content="Seaside Sci-Fi - at the intersection of the British seaside and cosmic horror. Something is coming.">
-  <meta property="og:title" content="Seaside Sci-Fi">
-  <meta property="og:description" content="Access restricted. Authorised personnel only.">
-  <meta property="og:image" content="/assets/img/seasidescifi-og.jpg">
-  <meta property="og:url" content="https://seasidescifi.com">
-  <meta name="twitter:card" content="summary_large_image">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="seaside.css">
+<meta charset="UTF-8">
+
+    <meta name="version" content="SEASIDE SCI-FI HOME PORTAL v1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><!-- TODO: Seaside Sci-Fi page title --></title>
+
+    <link rel="canonical" href="https://seasidescifi.com/index.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Seaside Sci-Fi">
+    <meta property="og:title" content="<!-- TODO: Seaside Sci-Fi OG title -->">
+    <meta property="og:description" content="<!-- TODO: Seaside Sci-Fi OG description -->">
+    <meta property="og:url" content="https://seasidescifi.com/index.html">
+    <meta property="og:image" content="https://seasidescifi.com/assets/img/og/<!-- TODO: og-image-filename.jpg -->">
+    <meta property="og:image:alt" content="<!-- TODO: Seaside Sci-Fi OG image alt text -->">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<!-- TODO: Seaside Sci-Fi Twitter title -->">
+    <meta name="twitter:description" content="<!-- TODO: Seaside Sci-Fi Twitter description -->">
+    <meta name="twitter:image" content="https://seasidescifi.com/assets/img/og/<!-- TODO: og-image-filename.jpg -->">
+    <meta name="twitter:image:alt" content="<!-- TODO: Seaside Sci-Fi Twitter image alt text -->">
+
+    <!-- Standard meta -->
+    <meta name="author" content="Paul Fillingham">
+    <meta name="description" content="<!-- TODO: Seaside Sci-Fi meta description -->">
+
+    <link rel="stylesheet" href="chassis.css">
+    <link rel="stylesheet" href="sci-fi-home-portal.css">
 </head>
 <body>
 
-  <header id="main-nav"></header>
+    <header id="main-nav"></header>
 
-  <!-- Video background -->
-  <div class="ssf-video-bg">
-    <video autoplay muted loop playsinline>
-      <source src="/media/roker-waves.webm" type="video/webm">
-      <source src="/media/roker-waves.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <!-- Dark overlay -->
-  <div class="ssf-video-overlay"></div>
-
-  <!-- Terminal stage -->
-  <div class="ssf-stage">
-    <div class="ssf-terminal">
-
-      <div class="ssf-terminal-bar">
-        <span class="ssf-terminal-title">Seaside Sci-Fi // archive access system // v.2.1</span>
-        <span class="ssf-terminal-status">
-          <span class="ssf-status-dot"></span>
-          Connected
-        </span>
-      </div>
-
-      <div class="ssf-terminal-body">
-        <p class="ssf-sys-line">SYS: session resumed 03:47:22</p>
-        <p class="ssf-sys-line">SYS: last access 48h 00m ago</p>
-        <p class="ssf-sys-line accent">SYS: 1 unread fragment in buffer</p>
-        <hr class="ssf-divider">
-        <div id="ssf-fragment-block">
-          <p class="ssf-fragment">
-            The archive is incomplete. Some files were removed before the project was closed. Others were never created - only described in documents that refer to them as if they already existed.<span class="cursor"></span>
-          </p>
+    <section class="branding-intro-bar">
+        <div class="container branding-flex">
+            <div class="hero-logotype">
+                <img src="assets/img/seaside-scifi-logotype.png" alt="Seaside Sci-Fi" class="branding-logo">
+            </div>
+            <div class="hero-statement">
+                <h1 class="branding-text"><!-- TODO: Seaside Sci-Fi tagline --></h1>
+            </div>
+            <div class="hero-action">
+                <a href="contact.html" class="pill-contact-btn">Contact</a>
+            </div>
         </div>
-        <p class="ssf-prompt" id="ssf-prompt">
-          Press any key or <span id="ssf-prompt-trigger">click here</span> to retrieve fragment from buffer.
-        </p>
-      </div>
+    </section>
 
-      <div class="ssf-teaser-panel" id="ssf-teaser-panel">
-        <hr class="ssf-divider">
-        <p class="ssf-teaser-line">Buffer fragment - clearance level unknown - origin unverified</p>
-        <div class="ssf-teaser-text" id="ssf-teaser-text"></div>
-        <div class="ssf-terminated" id="ssf-terminated">
-          <hr class="ssf-divider">
-          <p class="ssf-terminated-line">// Connection terminated</p>
-          <p class="ssf-terminated-line">// Session logged - reference 7714-Bravo</p>
-          <p class="ssf-terminated-return">
-            Return in 48 hours for next fragment. &nbsp;
-            <a href="https://thinkamigo.substack.com" target="_blank" rel="noopener">Follow the signal on Substack</a>
-          </p>
-          <span class="ssf-stamp">Classified</span>
-        </div>
-      </div>
+    <main>
+        <section class="hero-full-width-wrapper">
+            <div class="container">
+                <section class="home-hero-grid" id="card-grid">
+                    <!-- Cards render here from articles.json via the card renderer script -->
+                </section>
+            </div>
+        </section>
+    </main>
 
-    </div>
-  </div>
+    <footer id="main-footer"></footer>
 
-  <footer id="main-footer"></footer>
-  <script src="loader.js"></script>
-  <script src="terminal.js"></script>
+    <script src="loader.js"></script>
 
 </body>
 </html>
