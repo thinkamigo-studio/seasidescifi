@@ -1,5 +1,5 @@
 /* ============================================================
-   SEASIDE SCI-FI CHASSIS v1.2 - GLOBAL SHELL
+   SEASIDE SCI-FI CHASSIS v1.4 - GLOBAL SHELL
    Forked from THINKAMIGO CHASSIS v6.6 - June 2026
    Architecture: 1250px Grid | 3-Col Footer | UI Components
    Rules: STRICT HEX-ONLY (Converted all RGB/RGBA to Hex-8)
@@ -17,6 +17,15 @@
    v1.2: Glow hover effect added to atomic bucket logo in
          mobile logotype stack. max-width on desktop logotype
          set to 700px.
+   v1.3: Mobile hamburger menu improved. Font size increased
+         to 18px. Padding increased for larger tap targets.
+         Dividers moved from a to li so they span full width.
+         Text alignment centred for mobile.
+   v1.4: Full !important sweep. All unnecessary !important
+         declarations removed. Only two remain: menu-toggle
+         display:none (browser override protection) and
+         back-to-top.show display:flex (overrides base none).
+         Cascade now clean and predictable throughout.
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -67,24 +76,24 @@ img {
 
 /* --- 2. GLOBAL NAVIGATION --- */
 #main-nav {
-    background-color: var(--footer-bg) !important;
-    width: 100% !important;
+    background-color: var(--footer-bg);
+    width: 100%;
     position: relative;
     z-index: 3000;
-    display: block !important;
+    display: block;
 }
 
 #main-nav .nav-flex {
-    display: flex !important;
-    justify-content: space-between !important;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    width: 100% !important; 
-    max-width: none !important; 
+    width: 100%;
+    max-width: none;
     padding: 10px 20px; 
     box-sizing: border-box;
 }
 
-.logo img { height: 40px !important; width: auto; display: block; }
+.logo img { height: 40px; width: auto; display: block; }
 
 .nav-links { 
     display: flex; 
@@ -95,7 +104,7 @@ img {
 }
 
 .nav-links a {
-    color: #ffffff !important;
+    color: #ffffff;
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
     font-weight: 500;
@@ -122,17 +131,20 @@ img {
 
 /* --- 4. MASTER FOOTER --- */
 #main-footer { 
-    background-color: var(--footer-bg) !important; color: #ffffff !important; 
-    padding: 60px 0 0px !important; width: 100% !important; 
-    display: block !important; clear: both;
+    background-color: var(--footer-bg);
+    color: #ffffff;
+    padding: 60px 0 0;
+    width: 100%;
+    display: block;
+    clear: both;
     margin: 0;
 }
 
 /* Footer logotype - desktop */
 .footer-full-logo {
-    width: 100% !important;
+    width: 100%;
     max-width: 700px;
-    height: auto !important;
+    height: auto;
     display: block;
     margin: 0 auto;
 }
@@ -155,19 +167,19 @@ img {
 }
 
 .footer-body-grid { 
-    display: flex !important; 
-    justify-content: space-between !important; 
-    align-items: flex-start !important; 
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     flex-wrap: wrap; 
     gap: 20px; 
 }
 
-.footer-visual-col { flex: 0 0 250px; margin-top: 0 !important; }
+.footer-visual-col { flex: 0 0 250px; margin-top: 0; }
 
 .footer-brand-mark { 
     margin: 0 auto;
-    max-width: 80% !important; 
-    height: auto !important; 
+    max-width: 80%;
+    height: auto;
     display: block;
     transition: filter 0.4s ease-in-out; 
 }
@@ -180,21 +192,21 @@ img {
 .footer-nav-col { 
     flex: 1; 
     min-width: 140px; 
-    padding-top: 100px !important; 
+    padding-top: 100px;
 }
 
 .footer-nav-col ul { list-style: none; padding: 0; margin: 0; }
 .footer-nav-col li { margin-bottom: 10px; }
 
 .footer-nav-col a { 
-    color: #ffffffb3 !important;
+    color: #ffffffb3;
     font-size: 14px; 
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
 }
 
 .footer-nav-col a:hover {
-    color: #ffffff !important;
+    color: #ffffff;
     text-decoration: underline;
     text-decoration-color: var(--brand-orange);
     text-underline-offset: 6px;
@@ -239,7 +251,7 @@ img {
 
 .social-item span {
     margin-top: 10px;
-    color: #ffffffb3 !important;
+    color: #ffffffb3;
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
     transition: 0.3s ease;
@@ -247,7 +259,7 @@ img {
 }
 
 .social-item a:hover span {
-    color: var(--brand-orange) !important;
+    color: var(--brand-orange);
 }
 
 .icon-linkedin { background-image: url('assets/img/icon-linkedin.png'); }
@@ -269,8 +281,8 @@ img {
 }
 
 .btn-pill:hover { 
-    background-color: var(--brand-blue-light) !important; 
-    color: #ffffff !important;
+    background-color: var(--brand-blue-light);
+    color: #ffffff;
 }
 
 .back-to-top { 
@@ -308,22 +320,37 @@ img {
 
 /* --- 6. RESPONSIVE OVERRIDES --- */
 @media (max-width: 1100px) {
-    .hamburger { display: flex !important; }
+    .hamburger { display: flex; }
+
     .nav-links {
-        display: none !important; position: absolute;
+        display: none;
+        position: absolute;
         top: 100%; left: 0; width: 100%;
         background-color: var(--footer-bg);
-        flex-direction: column; padding: 10px 0; z-index: 3001;
+        flex-direction: column;
+        padding: 0;
+        z-index: 3001;
     }
-    #menu-toggle:checked ~ .nav-links { display: flex !important; }
+
+    #menu-toggle:checked ~ .nav-links { display: flex; }
+
+    .nav-links li {
+        width: 100%;
+        border-top: 1px solid #ffffff1a;
+    }
+
     .nav-links a { 
-        padding: 15px 30px !important; 
+        display: block;
+        padding: 20px 30px;
         width: 100%; 
-        box-sizing: border-box; 
-        border-top: 1px solid #ffffff1a; 
-        text-align: left;
+        box-sizing: border-box;
+        text-align: center;
         text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        color: #ffffff;
     }
+
     .nav-links a:hover {
         text-decoration: underline;
         text-decoration-color: var(--brand-orange);
@@ -332,58 +359,56 @@ img {
 }
 
 @media (min-width: 1101px) {
-    .nav-links { display: flex !important; position: static !important; width: auto !important; background: transparent !important; flex-direction: row !important; }
-    .hamburger { display: none !important; }
+    .nav-links { display: flex; position: static; width: auto; background: transparent; flex-direction: row; }
+    .hamburger { display: none; }
 }
 
 @media (max-width: 768px) {
     #main-footer .footer-branding-top { padding: 0 20px 40px 20px; }
 
-    /* Switch logotypes */
     .footer-logo-desktop { display: none; }
     .footer-logo-mobile  { display: flex; }
 
-    /* Hide desktop brand mark col - atomic bucket appears in mobile stack instead */
     #main-footer .footer-visual-col { display: none; }
 
     #main-footer .footer-body-grid { 
-        flex-direction: column !important; 
-        align-items: center !important; 
-        text-align: center !important; 
-        width: 100% !important;
-        gap: 0 !important; 
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        gap: 0;
     }
 
     #main-footer .footer-nav-col { 
-        padding-top: 0 !important; 
-        width: 100% !important;
-        text-align: center !important;
-        margin-bottom: 0 !important; 
-        display: block !important;
+        padding-top: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0;
+        display: block;
     }
 
     #main-footer .footer-nav-col ul {
-        display: block !important;
-        padding-left: 0 !important; 
-        margin: 0 auto !important;
-        list-style: none !important;
-        width: 100% !important;
+        display: block;
+        padding-left: 0;
+        margin: 0 auto;
+        list-style: none;
+        width: 100%;
     }
 
     #main-footer .footer-nav-col li {
-        text-align: center !important;
-        margin: 0 0 10px 0 !important;
-        width: 100% !important;
+        text-align: center;
+        margin: 0 0 10px 0;
+        width: 100%;
     }
     
     #main-footer .footer-nav-col a {
-        display: block !important;
-        width: 100% !important;
-        text-align: center !important;
+        display: block;
+        width: 100%;
+        text-align: center;
     }
 
     .social-strip {
-        flex-direction: row !important;
+        flex-direction: row;
         gap: 10px;
         align-items: center;
     }
