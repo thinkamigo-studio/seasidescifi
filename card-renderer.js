@@ -1,9 +1,11 @@
 /* ============================================================
-   SEASIDE SCI-FI CARD RENDERER v2.0
+   SEASIDE SCI-FI CARD RENDERER v2.1
    Reads articles.json and builds card grids on any page.
-   Usage: renderSection(section, gridId) 
+   Usage: SciFilCards.renderSection(section, gridId)
    Call once per section block on any page.
    articles.json is fetched once and cached for the session.
+   v2.1: renderSection call moved into script to fix
+         ReferenceError when called from inline script block.
    ============================================================ */
 
 const SciFilCards = (() => {
@@ -51,3 +53,8 @@ const SciFilCards = (() => {
     return { renderSection };
 
 })();
+
+/* --- PAGE RENDER CALLS --- */
+document.addEventListener('DOMContentLoaded', () => {
+    SciFilCards.renderSection('home-featured', 'home-grid');
+});
