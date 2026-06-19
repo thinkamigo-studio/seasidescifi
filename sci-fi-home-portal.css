@@ -1,5 +1,5 @@
 /* ============================================================
-   SEASIDE SCI-FI HOME PORTAL v1.4
+   SEASIDE SCI-FI HOME PORTAL v1.5
    Forked from THINKAMIGO HOME PORTAL v1.68 - June 2026
    Architecture: 1250px Wide | Card Grid | Hero Image Panel
    v1.0: Forked from thinkamigo home-portal.css v1.68.
@@ -20,6 +20,9 @@
          the hero stack switch fires before the 1080px height
          reduction. Prevents mobile stack being clipped by
          overflow: hidden on .site-hero at intermediate sizes.
+   v1.5: Mobile card grid changed from 1-column to 2-column.
+         Featured card spans full width. Article cards sit in
+         2-column grid below - consistent with BBC mobile layout.
    v1.4: Mobile hero simplified. Three-part stack replaced
          with single composite PNG (atomic-logo-mobile-header.png).
          Removes stack logic entirely - cleaner and more reliable.
@@ -176,6 +179,6 @@
     /* Show single mobile composite */
     .hero-mobile-logo { display: block; }
 
-    .home-hero-grid, .blog-grid { grid-template-columns: 1fr; }
-    .featured-card { grid-column: span 1; }
+    .home-hero-grid, .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    .featured-card { grid-column: span 2; }
 }
