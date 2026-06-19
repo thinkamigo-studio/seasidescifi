@@ -1,11 +1,15 @@
 /* ============================================================
-   SEASIDE SCI-FI CARD RENDERER v2.1
+   SEASIDE SCI-FI CARD RENDERER v2.2
    Reads articles.json and builds card grids on any page.
    Usage: SciFilCards.renderSection(section, gridId)
    Call once per section block on any page.
    articles.json is fetched once and cached for the session.
    v2.1: renderSection call moved into script to fix
          ReferenceError when called from inline script block.
+   v2.2: Article card titles changed from h3 to h2 for correct
+         semantic hierarchy. One h1 per page (featured card).
+         All other card titles are h2 - same level, correct
+         for accessibility and SEO.
    ============================================================ */
 
 const SciFilCards = (() => {
@@ -25,7 +29,7 @@ const SciFilCards = (() => {
         card.href = article.url;
         card.className = article.type === 'featured' ? 'featured-card' : 'article-card';
 
-        const titleTag = article.type === 'featured' ? 'h2' : 'h3';
+        const titleTag = 'h2';
 
         card.innerHTML = `
             <img src="assets/img/cards/${article.image}" alt="${article.title}">

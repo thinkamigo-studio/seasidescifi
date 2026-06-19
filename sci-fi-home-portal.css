@@ -1,5 +1,5 @@
 /* ============================================================
-   SEASIDE SCI-FI HOME PORTAL v1.5
+   SEASIDE SCI-FI HOME PORTAL v1.9
    Forked from THINKAMIGO HOME PORTAL v1.68 - June 2026
    Architecture: 1250px Wide | Card Grid | Hero Image Panel
    v1.0: Forked from thinkamigo home-portal.css v1.68.
@@ -20,12 +20,25 @@
          the hero stack switch fires before the 1080px height
          reduction. Prevents mobile stack being clipped by
          overflow: hidden on .site-hero at intermediate sizes.
-   v1.5: Mobile card grid changed from 1-column to 2-column.
-         Featured card spans full width. Article cards sit in
-         2-column grid below - consistent with BBC mobile layout.
    v1.4: Mobile hero simplified. Three-part stack replaced
          with single composite PNG (atomic-logo-mobile-header.png).
          Removes stack logic entirely - cleaner and more reliable.
+   v1.5: Mobile card grid changed from 1-column to 2-column.
+         Featured card spans full width. Article cards sit in
+         2-column grid below - consistent with BBC mobile layout.
+   v1.9: Article card h2 line-height opened fractionally to 1.3.
+         Bottom margin added to article card p to give cards
+         more breathing room below the description.
+   v1.8: line-height: 1.2 added to featured-card h2 to match
+         article card heading tightness.
+   v1.7: Article card titles corrected from h3 to h2 for proper
+         semantic hierarchy and accessibility. Line-height tightened
+         on article card h2.
+   v1.6: Card class updated from service-card/blog-card to
+         article-card to match card-renderer.js output.
+         Image selector and typography rules updated to match.
+         Fixes disconnected title/description spacing caused
+         by browser default margins applying to unmatched rules.
    ============================================================ */
 
 /* --- 1. SITE HERO --- */
@@ -114,7 +127,7 @@
     overflow: hidden;
 }
 
-.featured-card img, .service-card img, .blog-card img { 
+.featured-card img, .article-card img { 
     width: 100%; 
     aspect-ratio: 16 / 9; 
     object-fit: cover; 
@@ -129,12 +142,39 @@
 }
 
 /* --- 4. CARD TYPOGRAPHY --- */
-.featured-card .card-content h2 { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 500; color: var(--brand-blue); margin: 0 0 10px 0; }
-.featured-card .card-content h3 { font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 300; margin: 0 0 15px 0; color: #333333; }
-.featured-card .card-content p { font-family: 'Poppins', sans-serif; font-size: 16px; margin: 0 0 15px 0; color: #333333; line-height: 1.5; }
+.featured-card .card-content h2 { 
+    font-family: 'Poppins', sans-serif; 
+    font-size: 30px; 
+    font-weight: 500; 
+    line-height: 1.2;
+    color: var(--brand-blue); 
+    margin: 0 0 8px 0; 
+}
 
-.service-card h3, .blog-card h3 { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 600; margin: 0 0 10px 0; color: var(--brand-blue); }
-.service-card p, .blog-card p { font-family: 'Poppins', sans-serif; font-size: 16px; margin: 0 0 15px 0; color: #333333; line-height: 1.4; }
+.featured-card .card-content p { 
+    font-family: 'Poppins', sans-serif; 
+    font-size: 16px; 
+    margin: 0 0 15px 0; 
+    color: #333333; 
+    line-height: 1.5; 
+}
+
+.article-card .card-content h2 { 
+    font-family: 'Poppins', sans-serif; 
+    font-size: 16px; 
+    font-weight: 600; 
+    line-height: 1.3;
+    margin: 0 0 6px 0; 
+    color: var(--brand-blue); 
+}
+
+.article-card .card-content p { 
+    font-family: 'Poppins', sans-serif; 
+    font-size: 14px; 
+    margin: 0 0 12px 0; 
+    color: #333333; 
+    line-height: 1.4; 
+}
 
 /* --- 5. GRID SPAN LOCKS --- */
 .featured-card { 
