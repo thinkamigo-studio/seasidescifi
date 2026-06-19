@@ -1,0 +1,181 @@
+/* ============================================================
+   SEASIDE SCI-FI HOME PORTAL v1.4
+   Forked from THINKAMIGO HOME PORTAL v1.68 - June 2026
+   Architecture: 1250px Wide | Card Grid | Hero Image Panel
+   v1.0: Forked from thinkamigo home-portal.css v1.68.
+         Branding intro bar styles carried over as base.
+   v1.1: Replaced branding-intro-bar with full-width hero
+         image panel. Background image left-anchored with
+         logotype and atomic bucket logo centred overlay.
+         Hero height fixed at 279px on desktop to match
+         launchpad-header.jpg natural height. Bucket logo
+         scales fluidly down to mobile breakpoint.
+   v1.2: Mobile hero reworked. Desktop logotype hidden on
+         mobile, replaced with three-part stack (seaside /
+         atomic bucket / SCI-FI graphics). Background image
+         centred on mobile - no rocket visible, clean sea.
+         Hero height increased on mobile to prevent SCI-FI
+         clipping at bottom of panel.
+   v1.3: Mobile breakpoint raised from 600px to 768px so
+         the hero stack switch fires before the 1080px height
+         reduction. Prevents mobile stack being clipped by
+         overflow: hidden on .site-hero at intermediate sizes.
+   v1.4: Mobile hero simplified. Three-part stack replaced
+         with single composite PNG (atomic-logo-mobile-header.png).
+         Removes stack logic entirely - cleaner and more reliable.
+   ============================================================ */
+
+/* --- 1. SITE HERO --- */
+.site-hero {
+    width: 100%;
+    height: 279px;
+    background-image: url('assets/img/launchpad-header.jpg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.site-hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Desktop logotype */
+.hero-logotype {
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    display: block;
+}
+
+/* Atomic bucket - desktop */
+.hero-bucket {
+    width: auto;
+    height: 130px;
+    display: block;
+}
+
+/* Mobile composite graphic - hidden on desktop */
+.hero-mobile-logo {
+    display: none;
+    width: 80%;
+    max-width: 320px;
+    height: auto;
+}
+
+/* --- 2. THE DUAL GRID WRAPPERS (UNIVERSAL 15PX RHYTHM) --- */
+.hero-full-width-wrapper { 
+    background-color: #f5f5ef; 
+    padding: 15px 0; 
+    width: 100%; 
+    clear: both; 
+}
+
+.blog-full-width-wrapper { 
+    background-color: #f1ebe7; 
+    padding: 15px 0; 
+    width: 100%; 
+    clear: both; 
+}
+
+.home-hero-grid, .blog-grid { 
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 15px; 
+    max-width: 1250px; 
+    margin: 0 auto; 
+    padding: 0; 
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+/* --- 3. THE CARD ENGINE --- */
+.home-hero-grid a, .blog-grid a { 
+    display: flex; 
+    flex-direction: column; 
+    background: #ffffff; 
+    text-decoration: none; 
+    color: inherit; 
+    height: 100%; 
+    border-radius: 4px; 
+    overflow: hidden;
+}
+
+.featured-card img, .service-card img, .blog-card img { 
+    width: 100%; 
+    aspect-ratio: 16 / 9; 
+    object-fit: cover; 
+    display: block; 
+}
+
+.card-content { 
+    padding: 15px; 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 4. CARD TYPOGRAPHY --- */
+.featured-card .card-content h2 { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 500; color: var(--brand-blue); margin: 0 0 10px 0; }
+.featured-card .card-content h3 { font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 300; margin: 0 0 15px 0; color: #333333; }
+.featured-card .card-content p { font-family: 'Poppins', sans-serif; font-size: 16px; margin: 0 0 15px 0; color: #333333; line-height: 1.5; }
+
+.service-card h3, .blog-card h3 { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 600; margin: 0 0 10px 0; color: var(--brand-blue); }
+.service-card p, .blog-card p { font-family: 'Poppins', sans-serif; font-size: 16px; margin: 0 0 15px 0; color: #333333; line-height: 1.4; }
+
+/* --- 5. GRID SPAN LOCKS --- */
+.featured-card { 
+    grid-column: span 2; 
+    grid-row: span 2; 
+}
+
+/* --- 6. RESPONSIVE BREAKPOINTS --- */
+@media (max-width: 1280px) {
+    .home-hero-grid, .blog-grid { padding: 0 20px; }
+}
+
+@media (max-width: 1080px) {
+    .site-hero { height: 200px; }
+
+    .hero-logotype { width: 80%; }
+
+    .hero-bucket { height: 90px; }
+
+    .hero-full-width-wrapper { padding: 15px 0; }
+    .blog-full-width-wrapper { padding: 15px 0; }
+
+    .home-hero-grid, .blog-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px; 
+        padding: 0; 
+    }
+    .featured-card { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+    /* Centre the sea, hide the rocket */
+    .site-hero {
+        height: 340px;
+        background-position: center center;
+    }
+
+    /* Hide desktop elements */
+    .hero-logotype { display: none; }
+    .hero-bucket { display: none; }
+
+    /* Show single mobile composite */
+    .hero-mobile-logo { display: block; }
+
+    .home-hero-grid, .blog-grid { grid-template-columns: 1fr; }
+    .featured-card { grid-column: span 1; }
+}

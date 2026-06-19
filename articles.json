@@ -1,0 +1,156 @@
+[
+    {
+        "id": "ssf-001",
+        "order": 1,
+        "section": ["home-featured"],
+        "type": "featured",
+        "title": "Help us populate our Seaside Sci-Fi, A-to-Z",
+        "description": "You know your Asteroids from your Zardos, right? But what about all those phrases inbetween? Tell us which obscure Sci-Fi references you would add to our A-to-Z.",
+        "image": "placeholder-640.jpg",
+        "url": "beyond-belief-atoz.html",
+        "active": "yes"
+    },
+    {
+        "id": "ssf-002",
+        "order": 2,
+        "section": ["home-featured"],
+        "type": "article",
+        "title": "COVID eZine Retrospective",
+        "description": "At the intersection of paranoia and solitude",
+        "image": "placeholder-640.jpg",
+        "url": "covid-ezine.html",
+        "active": "yes"
+    },
+    {
+        "id": "ssf-003",
+        "order": 3,
+        "section": ["home-featured"],
+        "type": "article",
+        "title": "Unidentified Bolts from the Blue",
+        "description": "UAP disclosure. But who benefits?",
+        "image": "placeholder-640.jpg",
+        "url": "uap-bolts.html",
+        "active": "yes"
+    },
+    {
+        "id": "ssf-004",
+        "order": 4,
+        "section": ["home-featured"],
+        "type": "article",
+        "title": "In Search of...Apollo Eyes",
+        "description": "Finding meaning in blurry photographs",
+        "image": "placeholder-640.jpg",
+        "url": "apollo-eyes.html",
+        "active": "yes"
+    },
+    {
+        "id": "ssf-005",
+        "order": 5,
+        "section": ["home-featured"],
+        "type": "article",
+        "title": "Chariots of the... WTF",
+        "description": "Erich von Daniken told us the gods were astronauts",
+        "image": "placeholder-640.jpg",
+        "url": "chariots-wtf.html",
+        "active": "yes"
+    },
+    {
+        "id": "ssf-006",
+        "order": 6,
+        "section": ["home-featured"],
+        "type": "article",
+        "title": "Reel to Real Mystery",
+        "description": "Tall tales from Tallahassee",
+        "image": "placeholder-640.jpg",
+        "url": "reel-real-mystery.html",
+        "active": "yes"
+    },
+    {
+        "id": "ssf-007",
+        "order": 7,
+        "section": ["home-featured"],
+        "type": "article",
+        "title": "Houdini Window",
+        "description": "Magic, rockets and a chimp called Elvis",
+        "image": "placeholder-640.jpg",
+        "url": "houdini-window.html",
+        "active": "yes"
+    },
+    {
+        "id": "ssf-008",
+        "order": 8,
+        "section": ["home-featured"],
+        "type": "article",
+        "title": "What AI Tools get wrong about creative practice",
+        "description": "Warped by the cultural memory of 1968",
+        "image": "placeholder-640.jpg",
+        "url": "ai-tools-wrong.html",
+        "active": "yes"
+    },
+    {
+        "id": "ssf-009",
+        "order": 9,
+        "section": ["home-featured"],
+        "type": "article",
+        "title": "Milligan's Monorail",
+        "description": "Skegness. Its part in my downfall",
+        "image": "placeholder-640.jpg",
+        "url": "milligans-monorail.html",
+        "active": "yes"
+    },
+    {
+        "id": "ssf-010",
+        "order": 10,
+        "section": ["home-featured"],
+        "type": "article",
+        "title": "Topographic Rabbit Holes",
+        "description": "When the written word is not enough",
+        "image": "placeholder-640.jpg",
+        "url": "topographic-rabbit.html",
+        "active": "yes"
+    },
+    {
+        "id": "ssf-011",
+        "order": 11,
+        "section": ["home-featured"],
+        "type": "article",
+        "title": "What in god's name is Seaside Sci-Fi",
+        "description": "A note for anyone experiencing creative paralysis",
+        "image": "placeholder-640.jpg",
+        "url": "what-is-ssf.html",
+        "active": "yes"
+    },
+    {
+        "id": "ssf-012",
+        "order": 12,
+        "section": ["home-featured"],
+        "type": "article",
+        "title": "Something in the water",
+        "description": "Pier-pressure, Insect peril, and Four-colour fever",
+        "image": "placeholder-640.jpg",
+        "url": "something-water.html",
+        "active": "yes"
+    },
+    {
+        "id": "ssf-013",
+        "order": 1,
+        "section": ["student-stories-001", "competition-winners"],
+        "type": "featured",
+        "title": "The Void Between Stations",
+        "description": "A story from Grimsby College",
+        "image": "placeholder-640.jpg",
+        "url": "void-between-stations.html",
+        "active": "no"
+    },
+    {
+        "id": "ssf-014",
+        "order": 1,
+        "section": ["student-stories-002", "competition-winners"],
+        "type": "featured",
+        "title": "Signals from the Pier",
+        "description": "A story from Hull College",
+        "image": "placeholder-640.jpg",
+        "url": "signals-from-pier.html",
+        "active": "no"
+    }
+]
