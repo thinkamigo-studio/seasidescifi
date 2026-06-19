@@ -127,9 +127,9 @@ img {
 
 /* Footer logotype - desktop */
 .footer-full-logo {
-    width: 100%;
-    max-width: 700px;
-    height: auto;
+    width: 100% !important;
+    max-width: 1150px;
+    height: auto !important;
     display: block;
     margin: 0 auto;
 }
@@ -169,7 +169,8 @@ img {
     transition: filter 0.4s ease-in-out; 
 }
 
-.footer-visual-col a:hover .footer-brand-mark {
+.footer-visual-col a:hover .footer-brand-mark,
+.footer-logo-mobile a:hover .footer-brand-mark {
     filter: drop-shadow(0 0 15px #3385ffcc);
 }
 
