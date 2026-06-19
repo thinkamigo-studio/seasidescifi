@@ -127,9 +127,9 @@ img {
 
 /* Footer logotype - desktop */
 .footer-full-logo {
-    width: 100% !important;
-    max-width: 1150px;
-    height: auto !important;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
     display: block;
     margin: 0 auto;
 }
