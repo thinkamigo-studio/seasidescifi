@@ -1,5 +1,5 @@
 /* ============================================================
-   SEASIDE SCI-FI CHASSIS v1.0 - GLOBAL SHELL
+   SEASIDE SCI-FI CHASSIS v1.1 - GLOBAL SHELL
    Forked from THINKAMIGO CHASSIS v6.6 - June 2026
    Architecture: 1250px Grid | 3-Col Footer | UI Components
    Rules: STRICT HEX-ONLY (Converted all RGB/RGBA to Hex-8)
@@ -10,6 +10,10 @@
          No other rules altered on fork - all structural,
          responsive, and hamburger-toggle logic carried over
          unchanged from the proven thinkamigo.com version.
+   v1.1: Footer anchored to bottom of viewport via flex column
+         body layout. Desktop/mobile footer logotype switch
+         added. Mobile footer-visual-col hidden (atomic bucket
+         logo appears in mobile logotype stack instead).
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -24,9 +28,20 @@
 }
 
 /* --- 1. CORE RESET --- */
-html, body { 
-    margin: 0; padding: 0; width: 100%; overflow-x: hidden; 
+html {
+    margin: 0; padding: 0; width: 100%; overflow-x: hidden;
+}
+
+body {
+    margin: 0; padding: 0; width: 100%; overflow-x: hidden;
     font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 figure { 
@@ -110,7 +125,31 @@ img {
     margin: 0;
 }
 
-.footer-full-logo { width: 100% !important; max-width: 1150px; height: auto !important; display: block; margin: 0 auto; }
+/* Footer logotype - desktop */
+.footer-full-logo {
+    width: 100% !important;
+    max-width: 1150px;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+}
+
+.footer-logo-desktop { display: block; }
+
+/* Footer logotype - mobile stack */
+.footer-logo-mobile {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo-mobile-part {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
 .footer-body-grid { 
     display: flex !important; 
@@ -295,7 +334,14 @@ img {
 
 @media (max-width: 768px) {
     #main-footer .footer-branding-top { padding: 0 20px 40px 20px; }
-    
+
+    /* Switch logotypes */
+    .footer-logo-desktop { display: none; }
+    .footer-logo-mobile  { display: flex; }
+
+    /* Hide desktop brand mark col - atomic bucket appears in mobile stack instead */
+    #main-footer .footer-visual-col { display: none; }
+
     #main-footer .footer-body-grid { 
         flex-direction: column !important; 
         align-items: center !important; 
@@ -303,8 +349,6 @@ img {
         width: 100% !important;
         gap: 0 !important; 
     }
-
-    #main-footer .footer-visual-col { margin-bottom: 30px; }
 
     #main-footer .footer-nav-col { 
         padding-top: 0 !important; 
@@ -350,19 +394,4 @@ img {
         width: 44px;
         height: 44px;
     }
-
-
-
-
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
-}
-
-
 }
