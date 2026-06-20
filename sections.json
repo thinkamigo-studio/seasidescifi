@@ -1,0 +1,26 @@
+{
+    "section001": [
+        { "id": "ssf-001", "weighting": 80, "date": "2026-06-01", "active": "yes", "type": "featured" },
+        { "id": "ssf-002", "weighting": 60, "date": "2026-06-01", "active": "yes", "type": "article" },
+        { "id": "ssf-003", "weighting": 60, "date": "2026-06-01", "active": "yes", "type": "article" },
+        { "id": "ssf-004", "weighting": 50, "date": "2026-06-01", "active": "yes", "type": "article" },
+        { "id": "ssf-005", "weighting": 50, "date": "2026-06-01", "active": "yes", "type": "article" },
+        { "id": "ssf-006", "weighting": 50, "date": "2026-06-01", "active": "yes", "type": "article" },
+        { "id": "ssf-007", "weighting": 60, "date": "2026-06-01", "active": "yes", "type": "article" },
+        { "id": "ssf-008", "weighting": 60, "date": "2026-06-01", "active": "yes", "type": "article" },
+        { "id": "ssf-009", "weighting": 40, "date": "2026-06-01", "active": "yes", "type": "article" },
+        { "id": "ssf-010", "weighting": 40, "date": "2026-06-01", "active": "yes", "type": "article" },
+        { "id": "ssf-011", "weighting": 55, "date": "2026-06-01", "active": "yes", "type": "article" },
+        { "id": "ssf-012", "weighting": 40, "date": "2026-06-01", "active": "yes", "type": "article" }
+    ],
+    "section002": [
+        { "id": "ssf-013", "weighting": 90, "date": "2026-06-10", "active": "no", "type": "featured" },
+        { "id": "ssf-014", "weighting": 85, "date": "2026-06-08", "active": "no", "type": "featured" }
+    ],
+    "section003": [
+        { "id": "ssf-013", "weighting": 90, "date": "2026-06-10", "active": "no", "type": "featured" }
+    ],
+    "section004": [
+        { "id": "ssf-014", "weighting": 85, "date": "2026-06-08", "active": "no", "type": "featured" }
+    ]
+}
